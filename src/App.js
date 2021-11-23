@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import easyNumberFormatter from "easy-number-formatter";
 class App extends Component {
   state = {
     data: [],
@@ -30,7 +31,7 @@ class App extends Component {
             {c.currencies.map((curr) => (
               <p key={curr.name}>Currencies(s):{curr.name}</p>
             ))}
-            <p>Population:{c.population}</p>
+            <p>Population:{easyNumberFormatter.formatNumber(c.population)}</p>
           </div>
         ))}
       </div>
