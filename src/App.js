@@ -19,21 +19,25 @@ class App extends Component {
   render() {
     console.log("1", this.state.data);
     return (
-      <div className="countries">
-        {this.state.data.map((c) => (
-          <div className="country" key={c.name}>
-            <p> Name: {c.name}</p>
-            <p>Capital:{c.capital}</p>
-            <img src={c.flags.png} />
-            {c.languages.map((lang) => (
-              <p key={lang.name}>Language(s):{lang.name}</p>
-            ))}
-            {c.currencies.map((curr) => (
-              <p key={curr.name}>Currencies(s):{curr.name}</p>
-            ))}
-            <p>Population:{easyNumberFormatter.formatNumber(c.population)}</p>
-          </div>
-        ))}
+      <div>
+        <h1>COUNTRIES IN THE WORLD</h1>
+        <input type="text" name="search" placeholder="Search.." />
+        <div className="countries">
+          {this.state.data.map((c) => (
+            <div className="country" key={c.name}>
+              <p> Name: {c.name}</p>
+              <p>Capital:{c.capital}</p>
+              <img src={c.flags.png} />
+              {c.languages.map((lang) => (
+                <p key={lang.name}>Language(s):{lang.name}</p>
+              ))}
+              {c.currencies.map((curr) => (
+                <p key={curr.name}>Currencies(s):{curr.name}</p>
+              ))}
+              <p>Population:{easyNumberFormatter.formatNumber(c.population)}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
