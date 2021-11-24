@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>COUNTRIES IN THE WORLD</h1>
+        <h1 className="title">COUNTRIES IN THE WORLD</h1>
         <input
           type="text"
           name="search"
@@ -34,15 +34,21 @@ class App extends Component {
         <div className="countries">
           {this.state.results.map((c) => (
             <div className="country" key={c.name}>
-              <p> Name: {c.name}</p>
-              <p>Capital:{c.capital}</p>
               <img src={c.flags.png} alt="" />
-              {c.languages.map((lang) => (
-                <p key={lang.name}>Language(s):{lang.name}</p>
-              ))}
-              {c.currencies.map((curr) => (
-                <p key={curr.name}>Currencies(s):{curr.name}</p>
-              ))}
+              <div>
+                <p>{c.name}</p>
+                <p>Capital: {c.capital}</p>
+              </div>
+              <p>
+                {c.languages.length > 1 ? "Languages: " : "Language: "}
+                {c.languages.map((l) => l.name).join(", ")}
+              </p>
+              {c.currencies.length > 0 && (
+                <p>
+                  {c.currencies.length > 1 ? "Currencies: " : "Currency: "}
+                  {c.currencies.map((curr) => curr.name).join(", ")}
+                </p>
+              )}
               <p>Population:{easyNumberFormatter.formatNumber(c.population)}</p>
             </div>
           ))}
