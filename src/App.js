@@ -18,38 +18,46 @@ class App extends Component {
   }
 
   searchUpdated = (e) => {
-    console.log(e.target.value);
+    let searchText = e.target.value.toLowerCase();
+    let filteredList = this.state.data.filter((c) =>
+      c.name.toLowerCase().includes(searchText)
+    );
+    this.setState({ results: filteredList });
   };
 
   render() {
     return (
       <div>
-        <h1 className="title">COUNTRIES IN THE WORLD</h1>
+        <h1 className="title">Countries of the World</h1>
         <input
           type="text"
           name="search"
           onChange={this.searchUpdated}
-          placeholder="Search.."
+          placeholder="Search by country name ..."
         />
         <div className="countries">
           {this.state.results.map((c) => (
             <div className="country" key={c.name}>
               <img src={c.flags.png} alt="" />
-              <div>
-                <p>{c.name}</p>
-                <p>Capital: {c.capital}</p>
+              <div className="country-header">
+                <p className="country-name">{c.name}</p>
+                <p className="country-capital">Capital: {c.capital}</p>
               </div>
-              <p>
-                {c.languages.length > 1 ? "Languages: " : "Language: "}
-                {c.languages.map((l) => l.name).join(", ")}
-              </p>
-              {c.currencies.length > 0 && (
+              <div className="country-details">
                 <p>
-                  {c.currencies.length > 1 ? "Currencies: " : "Currency: "}
-                  {c.currencies.map((curr) => curr.name).join(", ")}
+                  {c.languages.length > 1 ? "Languages: " : "Language: "}
+                  {c.languages.map((l) => l.name).join(", ")}
                 </p>
-              )}
-              <p>Population:{easyNumberFormatter.formatNumber(c.population)}</p>
+                {c.currencies.length > 0 && (
+                  <p>
+                    {c.currencies.length > 1 ? "Currencies: " : "Currency: "}
+                    {c.currencies.map((curr) => curr.name).join(", ")}
+                  </p>
+                )}
+                <p>
+                  Population: {easyNumberFormatter.formatNumber(c.population)}
+                </p>
+              </div>
             </div>
           ))}
         </div>

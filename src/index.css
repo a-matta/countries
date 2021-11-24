@@ -20,14 +20,14 @@ code {
 .title {
   margin: auto;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 input[type="text"] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid black;
-  width: 60%;
+  width: 40%;
   background: #f1f1f1;
   display: block;
   margin: 10px auto;
@@ -43,19 +43,36 @@ input[type="text"] {
   grid-gap: 50px;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   background-color: #f1f1f1;
 }
 
 .country {
-  padding: 2px 16px;
+  padding: 0;
   border: 1px solid black;
+  height: 300px;
 }
 
 img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 2px;
   width: 80px;
   float: right;
+}
+
+.country-header {
+  background-color: darkgray;
+  height: 150px;
+  padding: 5px;
+}
+
+.country-name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.country-capital {
+  font-size: 17px;
+}
+
+.country-details {
+  padding: 5px;
 }
