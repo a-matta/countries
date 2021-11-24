@@ -3,7 +3,8 @@ import axios from "axios";
 import easyNumberFormatter from "easy-number-formatter";
 class App extends Component {
   state = {
-    data: [],
+    data: [], // This is all country list
+    results: [], // This is what we display
   };
 
   componentDidMount() {
@@ -12,22 +13,30 @@ class App extends Component {
         "https://restcountries.com/v2/all?fields=name,capital,flags,languages,currencies,population"
       )
       .then((response) => {
-        this.setState({ data: response.data });
+        this.setState({ data: response.data, results: response.data });
       });
   }
 
+  searchUpdated = (e) => {
+    console.log(e.target.value);
+  };
+
   render() {
-    console.log("1", this.state.data);
     return (
       <div>
         <h1>COUNTRIES IN THE WORLD</h1>
-        <input type="text" name="search" placeholder="Search.." />
+        <input
+          type="text"
+          name="search"
+          onChange={this.searchUpdated}
+          placeholder="Search.."
+        />
         <div className="countries">
-          {this.state.data.map((c) => (
+          {this.state.results.map((c) => (
             <div className="country" key={c.name}>
               <p> Name: {c.name}</p>
               <p>Capital:{c.capital}</p>
-              <img src={c.flags.png} />
+              <img src={c.flags.png} alt="" />
               {c.languages.map((lang) => (
                 <p key={lang.name}>Language(s):{lang.name}</p>
               ))}
