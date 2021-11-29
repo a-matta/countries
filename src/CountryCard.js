@@ -1,26 +1,33 @@
 import React from "react";
 import easyNumberFormatter from "easy-number-formatter";
 
-const CountryCard = (props) => {
+const CountryCard = ({
+  name,
+  flags,
+  capital,
+  languages,
+  currencies,
+  population,
+}) => {
   return (
-    <div className="country" key={props.name}>
-      <img src={props.flags.png} alt="" />
+    <div className="country" key={name}>
+      <img src={flags.png} alt="" />
       <div className="country-header">
-        <p className="country-name">{props.name}</p>
-        <p className="country-capital">Capital: {props.capital}</p>
+        <p className="country-name">{name}</p>
+        <p className="country-capital">Capital: {capital}</p>
       </div>
       <div className="country-details">
         <p>
-          {props.languages.length > 1 ? "Languages: " : "Language: "}
-          {props.languages.map((l) => l.name).join(", ")}
+          {languages.length > 1 ? "Languages: " : "Language: "}
+          {languages.map((l) => l.name).join(", ")}
         </p>
-        {props.currencies.length > 0 && (
+        {currencies.length > 0 && (
           <p>
-            {props.currencies.length > 1 ? "Currencies: " : "Currency: "}
-            {props.currencies.map((curr) => curr.name).join(", ")}
+            {currencies.length > 1 ? "Currencies: " : "Currency: "}
+            {currencies.map((curr) => curr.name).join(", ")}
           </p>
         )}
-        <p>Population: {easyNumberFormatter.formatNumber(props.population)}</p>
+        <p>Population: {easyNumberFormatter.formatNumber(population)}</p>
       </div>
     </div>
   );
