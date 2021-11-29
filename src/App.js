@@ -1,6 +1,7 @@
+import CountryCard from "./CountryCard";
 import React, { Component } from "react";
 import axios from "axios";
-import easyNumberFormatter from "easy-number-formatter";
+
 class App extends Component {
   state = {
     data: [], // This is all country list
@@ -37,28 +38,7 @@ class App extends Component {
         />
         <div className="countries">
           {this.state.results.map((c) => (
-            <div className="country" key={c.name}>
-              <img src={c.flags.png} alt="" />
-              <div className="country-header">
-                <p className="country-name">{c.name}</p>
-                <p className="country-capital">Capital: {c.capital}</p>
-              </div>
-              <div className="country-details">
-                <p>
-                  {c.languages.length > 1 ? "Languages: " : "Language: "}
-                  {c.languages.map((l) => l.name).join(", ")}
-                </p>
-                {c.currencies.length > 0 && (
-                  <p>
-                    {c.currencies.length > 1 ? "Currencies: " : "Currency: "}
-                    {c.currencies.map((curr) => curr.name).join(", ")}
-                  </p>
-                )}
-                <p>
-                  Population: {easyNumberFormatter.formatNumber(c.population)}
-                </p>
-              </div>
-            </div>
+            <CountryCard {...c} key={c.name} />
           ))}
         </div>
       </div>
