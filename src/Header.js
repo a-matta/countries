@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div class="navbar">
+    <div className="navbar">
       <a href="/">Countries Application</a>
       <a href="#home">Home</a>
       <a href="#search">Search</a>
