@@ -1,3 +1,5 @@
+import easyNumberFormatter from "easy-number-formatter";
+
 <p>
   {languages.length > 1 ? "Languages: " : "Language: "}
   {languages.map((l) => l.name).join(", ")}

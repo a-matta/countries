@@ -1,5 +1,4 @@
 import React from "react";
-import easyNumberFormatter from "easy-number-formatter";
 
 const CountryCard = ({
   name,

@@ -95,8 +95,9 @@ main {
 }
 .navbar a {
   float: left;
+  font-weight: bold;
   display: block;
-  color: #f2f2f2;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
