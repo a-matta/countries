@@ -20,7 +20,7 @@ const App = () => {
   useEffect(() => {
     axios
       .get(
-        "https://restcountries.com/v2/all?fields=name,capital,flags,languages,currencies,population"
+        "https://restcountries.com/v2/all?fields=name,capital,flags,languages,currencies,population,timezones,callingCodes,region"
       )
       .then((response) => {
         setData(response.data);
