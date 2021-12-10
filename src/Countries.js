@@ -21,7 +21,7 @@ const Countries = ({ searchUpdated, results, ...restProps }) => {
       </Route>
       <Route
         path={`${restProps.match.path}/:capital`}
-        render={(props) => <CountryDetail {...props} />}
+        render={(props) => <CountryDetail results={results} {...props} />}
       />
     </Switch>
   );
