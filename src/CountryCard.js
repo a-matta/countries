@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CountryCard = ({
   name,
@@ -9,15 +10,17 @@ const CountryCard = ({
   population,
 }) => {
   return (
-    <div className="country" key={name}>
-      <div className="country-header">
-        <p className="country-name">{name}</p>
-        <p className="country-capital">Capital: {capital}</p>
+    <Link to={`/countries/${capital}`} style={{ textDecoration: "none" }}>
+      <div className="country" key={name}>
+        <div className="country-header">
+          <p className="country-name">{name}</p>
+          <p className="country-capital">Capital: {capital}</p>
+        </div>
+        <div className="country-details">
+          <img src={flags.png} alt={name} />
+        </div>
       </div>
-      <div className="country-details">
-        <img src={flags.png} alt={name} />
-      </div>
-    </div>
+    </Link>
   );
 };
 

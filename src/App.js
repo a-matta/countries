@@ -1,7 +1,8 @@
-import CountryCard from "./CountryCard";
+import Countries from "./Countries";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./Header";
+
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -38,19 +39,16 @@ const App = () => {
           <Route exact path="/about">
             <div>Create ABOUT page component</div>
           </Route>
-          <Route path="/countries">
-            <input
-              type="text"
-              name="search"
-              onChange={searchUpdated}
-              placeholder="Search by country name ..."
-            />
-            <div className="countries">
-              {results.map((c) => (
-                <CountryCard {...c} key={c.name} />
-              ))}
-            </div>
-          </Route>
+          <Route
+            path="/countries"
+            render={(props) => (
+              <Countries
+                {...props}
+                results={results}
+                searchUpdated={searchUpdated}
+              />
+            )}
+          />
         </Switch>
       </BrowserRouter>
     </div>
