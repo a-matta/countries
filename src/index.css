@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +10,7 @@ body {
   font-family: "Press Start 2P", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif;
 }
 
 code {
@@ -17,18 +18,11 @@ code {
     monospace;
 }
 
-.title {
-  margin: auto;
-  text-align: center;
-  font-size: 30px;
-}
-
 input[type="text"] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid black;
   width: 40%;
-  background: #f1f1f1;
   display: block;
   margin: 10px auto;
   align-items: center;
@@ -36,7 +30,6 @@ input[type="text"] {
 }
 
 .countries {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
   display: grid;
   grid-template-columns: 300px 300px 300px;
@@ -44,7 +37,6 @@ input[type="text"] {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: #f1f1f1;
 }
 
 .country {
@@ -59,9 +51,10 @@ img {
 }
 
 .country-header {
-  background-color: darkgray;
+  background-color: #0e6fdf;
   height: 150px;
   padding: 5px;
+  border-radius: inherit;
 }
 
 .country-name {
@@ -75,4 +68,38 @@ img {
 
 .country-details {
   padding: 5px;
+}
+
+header,
+footer,
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+.header {
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(173, 173, 34, 1) 100%
+  );
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  top: 0;
+  width: 100%;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbar a:hover {
+  background: #ddd;
+  color: black;
 }

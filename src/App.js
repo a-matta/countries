@@ -1,6 +1,7 @@
 import CountryCard from "./CountryCard";
 import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
+import Header from "./Header";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -27,7 +28,7 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="title">Countries of the World</h1>
+      <Header />
       <input
         type="text"
         name="search"
