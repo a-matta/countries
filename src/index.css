@@ -93,6 +93,17 @@ footer {
   align-items: center;
   border-radius: 5px;
 }
+.country-detail-button {
+  border: none;
+  background-color: #22c1c3;
+  padding: 15px 32px;
+  color: #dddd;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+}
 .country-detail-content {
   padding: 0.25rem;
   text-align: center;

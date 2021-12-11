@@ -42,7 +42,7 @@ const CountryDetail = ({ results }) => {
               TimeZone:{country.timezones}
               {country.timezones.map((time) => time.name).join(", ")}
             </p>
-            <p>Calling Codes:{country.callingCodes}</p>
+            <p>Calling Codes:+{country.callingCodes}</p>
             <p>Region:{country.region}</p>
             <p>Time Zone:{weather.timezone}</p>
           </p>
@@ -64,17 +64,16 @@ const CountryDetail = ({ results }) => {
         </p>
         ;
       </div>
+      <div>
+        <button
+          className="country-detail-button"
+          onClick={() => history.goBack()}
+        >
+          Back to animals
+        </button>
+      </div>
     </div>
   );
 };
 
 export default CountryDetail;
-
-/*
-capital : country name
-flag,
-currency
-language 
-pop
-timezones,callingCodes,region
-*/
