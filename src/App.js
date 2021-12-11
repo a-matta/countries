@@ -4,6 +4,9 @@ import axios from "axios";
 import Header from "./Header";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Footer from "./Footer";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -34,10 +37,10 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/">
-            <div>Create HOME page component</div>
+            <Home />
           </Route>
           <Route exact path="/about">
-            <div>Create ABOUT page component</div>
+            <About />
           </Route>
           <Route
             path="/countries"
@@ -50,6 +53,7 @@ const App = () => {
             )}
           />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );

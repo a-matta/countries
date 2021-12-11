@@ -8,7 +8,7 @@ import axios from "axios";
 const CountryDetail = ({ results }) => {
   let { capital } = useParams();
   let history = useHistory();
-  const [weather, setWeather] = useState([]);
+  const [weather, setWeather] = useState(null);
 
   useEffect(() => {
     axios
@@ -26,26 +26,44 @@ const CountryDetail = ({ results }) => {
   }
 
   return (
-    <div>
-      <div>{capital}</div>
-      <p>
-        {country.languages.length > 1 ? "Languages: " : "Language: "}
-        {country.languages.map((l) => l.name).join(", ")}
-      </p>
-      {country.currencies.length > 0 && (
+    <div className="country-detail">
+      <div className="country-detail-content">
+        <h1>{country.name}</h1>
+        {weather && (
+          <p>
+            The weather in capital <strong>{country.capital}</strong> at the
+            moment is:{weather.main.temp} degrees.
+            <img
+              src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              alt={weather.weather[0].description}
+              className="weatherImg"
+            />
+            <p>
+              TimeZone:{country.timezones}
+              {country.timezones.map((time) => time.name).join(", ")}
+            </p>
+            <p>Calling Codes:{country.callingCodes}</p>
+            <p>Region:{country.region}</p>
+            <p>Time Zone:{weather.timezone}</p>
+          </p>
+        )}
         <p>
-          {country.currencies.length > 1 ? "Currencies: " : "Currency: "}
-          {country.currencies.map((curr) => curr.name).join(", ")}
+          {country.languages.length > 1
+            ? "Languages Spoken: "
+            : "Language Spoken: "}
+          {country.languages.map((l) => l.name).join(", ")}
         </p>
-      )}
-      <p>Population: {easyNumberFormatter.formatNumber(country.population)}</p>;
-      <p>
-        TimeZone:{country.timezones}
-        {country.timezones.map((time) => time.name).join(", ")}
-      </p>
-      <p>Calling Codes:{country.callingCodes}</p>
-      <p>Region:{country.region}</p>
-      <p>{JSON.stringify(weather, null, 4)}</p>
+        {country.currencies.length > 0 && (
+          <p>
+            {country.currencies.length > 1 ? "Currencies: " : "Currency: "}
+            {country.currencies.map((curr) => curr.name).join(", ")}
+          </p>
+        )}
+        <p>
+          Population: {easyNumberFormatter.formatNumber(country.population)}
+        </p>
+        ;
+      </div>
     </div>
   );
 };
